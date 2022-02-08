@@ -30,6 +30,7 @@ Array
 7.findindex
 DESTRUCTURING
 8.Object Destructuring
+9.Spread
 
 */
 
@@ -349,6 +350,7 @@ function saveSettings(settings) {
 }
 */
 //->Destructuring(o)
+/*
 function saveSettings({ notification = {}, color = "blue" }) {
   console.log(notification, color);
 }
@@ -361,3 +363,45 @@ saveSettings({
   },
   color: "black",
 });
+*/
+
+//spread//
+
+//->adding lastname, not using spread
+/*
+const lastname = prompt("Last Name");
+const profile = {
+  firstName: "jamie",
+  age: 29,
+  lastName: lastname !== "" ? lastname : undefined,
+};
+console.log(profile);
+*/
+//->adding lastname, using spread
+/*
+const lastname = prompt("Last Name");
+const profile = {
+  firstName: "jamie",
+  age: 29,
+  ...(lastname !== "" && { lastname }),
+};
+console.log(profile);
+*/
+
+//rest//
+/*
+//-> 함수의 인자 앞에 "..."가 붙는다면 rest
+a = [1, 2, 3, 4];
+const func = (...args) => console.log(args);
+func(a, 1, 2, "a");
+*/
+/*
+const user = {
+  name: "sean",
+  age: 27,
+  password: "nope",
+};
+
+const killPassword = ({ password, ...rest }) => rest;
+console.log(killPassword(user));
+*/
